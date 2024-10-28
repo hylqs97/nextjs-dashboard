@@ -9,7 +9,7 @@ export default function Search({placeholder}: { placeholder: string }) {
     const pathName = usePathname();
     const {replace} = useRouter();
 
-    const handleSearch = useDebouncedCallback((term: String) => {
+    const handleSearch = useDebouncedCallback((term: string) => {
         console.log(`Searching... ${term}`);
         const params = new URLSearchParams(searchParams);
 
@@ -30,7 +30,7 @@ export default function Search({placeholder}: { placeholder: string }) {
             <input
                 className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
                 placeholder={placeholder}
-                onChange={(e) => {
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     handleSearch(e.target.value);
                 }}
                 // 非受控组件，使用RUL中的参数作为默认值，增强用户体验
